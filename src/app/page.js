@@ -12,7 +12,7 @@ function Head() {
           This is a living database, with data primarily sourced from <a>these papers</a>.
         </p>
       </section>
-      <section className="text-(--text-dim) font-medium text-sm">
+      <section className="text-(--text-dim) font-medium text-sm cursor-default">
         <p>University of Alberta</p>
       </section>
     </div>
@@ -21,6 +21,12 @@ function Head() {
 
 export default function Home() {
   return (
-    <Head />
+    <div className="flex flex-col w-full">
+      <Head />
+      <div className="flex m-8 mt-12 bg-black">
+        hello world
+      </div>
+
+    </div>
   );
 }
