@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         className={`${geist.variable} ${kameron.variable} antialiased`}
       >
         <Navbar></Navbar>
-        <main className="flex m-4 ml-48 mr-48 border-black border-1">
+        <main className="flex m-4 ml-24 mr-24 md:m-8 md:ml-48 md:mr-48">
           {children}
         </main>
       </body>
