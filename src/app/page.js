@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Head() {
   return (
-    <div className="flex flex-row text-(--text) justify-between w-[100%]">
+    <div className="flex flex-row text-(--text) justify-between w-[100%] cursor-default">
       <section>
         <h1 className="text-6xl font-['Kameron']">
         ChemDB Search
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <Head />
-      <div className="flex m-8 mt-12 bg-black">
+      <div className="flex m-8 mt-12">
         hello world
       </div>
 
