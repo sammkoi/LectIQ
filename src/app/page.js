@@ -24,7 +24,10 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <Head />
-      <div className="flex m-8 mt-12">
+      <div className="flex flex-col m-8 mt-12">
+        <div className="search p-4 pl-8 pr-8">
+          Search
+        </div>
         hello world
       </div>
 

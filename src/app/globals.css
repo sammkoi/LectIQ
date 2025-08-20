@@ -30,3 +30,9 @@ body {
   color: var(--foreground);
   font-family: "Geist", Helvetica, sans-serif;
 }
+
+.search {
+  background-color: #daf0e437;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
