@@ -10,6 +10,7 @@ function Head() {
         <p className="mt-2 font-['Geist'] text-sm font-medium max-w-lg">
           Database search engine for binding data for carbohydrate libraries and compounds.
           This is a living database, with data primarily sourced from <a>these papers</a>.
+          {/* TODO: LINK PAPERS */}
         </p>
       </section>
       <section className="text-(--text-dim) font-medium text-sm cursor-default">
