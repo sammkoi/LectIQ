@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Search } from 'lucide-react';
+import SearchBar from "./components/SearchBar";
 
 function Head() {
   return (
@@ -22,15 +24,18 @@ function Head() {
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <>
+    <div className="hidden md:flex flex-col w-full">
       <Head />
       <div className="flex flex-col m-8 mt-12">
-        <div className="search p-4 pl-8 pr-8">
-          Search
-        </div>
-        hello world
+        <SearchBar />
       </div>
 
     </div>
+    {/* TODO: reactive */}
+    <div className="flex w-full h-full md:hidden justify-center items-center">
+      <p className="center font-medium">Please open on a larger screen</p>
+    </div>
+    </>
   );
 }

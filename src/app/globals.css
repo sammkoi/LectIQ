@@ -33,6 +33,15 @@ body {
 
 .search {
   background-color: #daf0e437;
+  border-width: 1px;
+  border-color: var(--outline);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
+}
+
+
+p.placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
