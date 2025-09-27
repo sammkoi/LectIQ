@@ -20,7 +20,7 @@ export const metadata = {
 function Navbar() {
   return (
     <nav className="flex flex-row justify-center md:justify-between p-4 pl-24 pr-24 border-b-1 border-b-black items-center">
-      <h1 className="font-[500] text-xl">ChemDB</h1>
+      <h1 className="font-[500] text-xl"><a href="/">ChemDB</a></h1>
       <a className="hidden md:block">About</a>
     </nav>
   )

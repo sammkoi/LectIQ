@@ -13,6 +13,7 @@
     "lucide-react": "^0.540.0",
     "motion": "^12.23.12",
     "next": "15.4.7",
+    "nodejs-polars": "^0.22.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "recharts": "^3.1.2"
@@ -22,6 +23,7 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.4.7",
+    "node-loader": "^2.1.0",
     "tailwindcss": "^4"
   }
 }
