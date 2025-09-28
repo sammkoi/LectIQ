@@ -14,7 +14,6 @@ export async function LectinContent({ id }) {
   }
   const data = await res.json();
   
-
   return (
     <div>
       <h1 className="text-2xl font-[500] mb-4">Lectin {id}</h1>
