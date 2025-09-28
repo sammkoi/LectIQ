@@ -1,6 +1,6 @@
 import GlycanGraph from "./glycangraph";
 
-const host = `http://localhost:8000/api`; // TODO: change to env variable
+export const host = `http://localhost:8000/api`; // TODO: change to env variable
 
 export async function LectinContent({ id }) {
   // const { id } = await params;
@@ -17,9 +17,10 @@ export async function LectinContent({ id }) {
   const data = await res.json();
   
   return (
-    <div>
-      <h1 className="text-2xl font-[500] mb-4">Lectin {id}</h1>
+    <div className="flex flex-col w-full gap-4">
+      <h1 className="text-2xl font-[500]">Lectin {id}</h1>
       <p>This is the page for lectin with ID: {id}</p>
+      <GlycanGraph data={data} />
     </div>
   );
 }

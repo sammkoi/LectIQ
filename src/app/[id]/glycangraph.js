@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -62,14 +62,36 @@ export default function GlycanGraph({ data }) {
       id: dataGlycan['GlyTouCan ID']
     });
   }
-
-  
-
   
   
   return (
-    <>
-    </>
+    <Card className="w-[100%]">
+      <CardHeader>
+        <CardTitle>Dissociation Plot (1/Kd) </CardTitle>
+        {/* <CardDescription></CardDescription> */}
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={sampleConfig} className="w-full max-h-[50vh]">
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} horizontal={false} />
+            <XAxis 
+              dataKey="glycan"
+              tickLine={false}
+              tick={false}
+              axisLine
+            />
+            <YAxis
+              dataKey="inv"
+              tickLine={false}
+              label="1/Kd"
+              axisLine
+            />
+            
+            <Bar dataKey="inv" fill="var(--chart-3)" radius={8}/>
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   )
 }
 
@@ -100,7 +122,7 @@ function ChartBarDefault() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={sampleConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart accessibilityLayer data={sampleData}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"
