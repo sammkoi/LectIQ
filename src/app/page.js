@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Search } from 'lucide-react';
 import SearchBar from "./components/SearchBar";
 
+export const host = `http://localhost:8000/api`; // TODO: change to env variable
+
 function Head() {
   return (
     <div className="flex flex-row text-(--text) justify-between w-[100%] cursor-default">
@@ -22,7 +24,10 @@ function Head() {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetch(`${host}/lectins`).then((res) => res.json());
+  const lectins = data.lectins;
+
   return (
     <>
     <div className="hidden md:flex flex-col w-full">
