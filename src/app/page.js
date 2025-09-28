@@ -18,7 +18,7 @@ function Head() {
         </p>
       </section>
       <section className="text-(--text-dim) font-medium text-sm cursor-default">
-        <p>University of Alberta</p>
+        <a href="https://www.ualberta.ca/en/index.html">University of Alberta</a>
       </section>
     </div>
   );

@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <nav className="flex flex-row justify-center md:justify-between p-4 pl-24 pr-24 border-b-1 border-b-black items-center">
       <Link href="/" className="font-[500] text-xl">ChemDB</Link>
-      <a className="hidden md:block">About</a>
+      {/* <a className="hidden md:block">About</a> */}
     </nav>
   )
 }
