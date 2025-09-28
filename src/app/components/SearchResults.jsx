@@ -10,10 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { useRouter } from "next/router";
 import Link from "next/link";
-
-import { SquareArrowOutUpRight } from "lucide-react";
 
 export default function SearchResults({ lectins }) {
   // const router = useRouter();

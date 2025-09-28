@@ -79,11 +79,16 @@ export default function GlycanGraph({ data, imgs }) {
               tickLine={false}
               tick={false}
               axisLine
+              label="Glycan"
             />
             <YAxis
               dataKey="inv"
               tickLine={false}
-              label="1/Kd"
+              label={{
+                value: "1/Kd",
+                angle: -90,
+                dx: -10,
+              }}
               axisLine
             />
             <ChartTooltip
