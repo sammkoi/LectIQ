@@ -41,10 +41,16 @@ export default function GlycanTooltip({ active, payload, label }) {
   
   return (<>
   <Card className="p-2">
-    <CardContent>
+    <CardContent >
       <CardTitle>{`${glycan}`}</CardTitle>
       <CardDescription>{`Kd: ${kd}`}</CardDescription>
-      <Image src={imgURI} alt="glycan structure" />
+      <Image 
+        src={imgURI} alt="glycan structure" 
+        width={0}
+        height={0}
+        className="max-w-[70%] w-auto h-auto max-h-[100px%]"
+        priority
+      />
     </CardContent>
     <CardFooter>
       <div className="flex w-full items-start gap-2 text-sm">

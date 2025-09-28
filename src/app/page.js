@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Search } from 'lucide-react';
 import SearchBar from "./components/SearchBar";
 
-export const host = `http://localhost:8000/api`; // TODO: change to env variable
+export const host = process.env.HOST;
 
 function Head() {
   return (

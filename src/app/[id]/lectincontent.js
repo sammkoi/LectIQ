@@ -1,7 +1,7 @@
 import GlycanGraph from "./glycangraph";
 import fetchGlycanImage from "./fetchimage";
 
-export const host = `http://localhost:8000/api`; // TODO: change to env variable
+export const host = process.env.HOST;
 
 export async function LectinContent({ params }) {
   const { id } = await params;
