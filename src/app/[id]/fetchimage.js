@@ -7,6 +7,6 @@ export default async function fetchGlycanImage({ glytoucanId }) {
   const svg = await fetch(generateURL(glytoucanId), { cache: "default" }).then(
     (res) => res.text()
   );
-  // console.log(res);
-  return svg;
+  // console.log(svg);
+  return encodeURIComponent(svg);
 }

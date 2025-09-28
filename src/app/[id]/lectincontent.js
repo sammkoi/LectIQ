@@ -20,8 +20,7 @@ export async function LectinContent({ params }) {
   if (data) {
     for (const glycan of data) {
       const id = glycan["GlyTouCan ID"];
-      // const svg = fetchGlycanImage(id);
-      const svg = "";
+      const svg = await fetchGlycanImage(id);
       imgData[id] = svg;
     }
   }

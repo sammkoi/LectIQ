@@ -18,6 +18,8 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
+import GlycanTooltip from "./glycantooltip"
+
 export const glycanChartConfig = {
   "glycan": {
     name: "Glycan"
@@ -59,7 +61,8 @@ export default function GlycanGraph({ data, imgs }) {
       kd: dataGlycan['Kd'],
       inv: dataGlycan['1/Kd'],
       sd: dataGlycan['SD'],
-      id: dataGlycan['GlyTouCan ID']
+      id: dataGlycan['GlyTouCan ID'],
+      img: `data:image/svg+xml,${imgs[dataGlycan['GlyTouCan ID']]}`
     });
   }
   
@@ -92,8 +95,7 @@ export default function GlycanGraph({ data, imgs }) {
               axisLine
             />
             <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<GlycanTooltip />}
             />
             <Bar dataKey="inv" fill="var(--chart-3)" radius={8}/>
           </BarChart>
