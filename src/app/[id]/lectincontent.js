@@ -1,3 +1,5 @@
+import GlycanGraph from "./glycangraph";
+
 const host = `http://localhost:8000/api`; // TODO: change to env variable
 
 export async function LectinContent({ id }) {
