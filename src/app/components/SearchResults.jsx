@@ -10,25 +10,35 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import { motion } from "motion/react";
+
 import Link from "next/link";
+const MotionRow = motion.create(TableRow)
 
 export default function SearchResults({ lectins }) {
   // const router = useRouter();
   return (
-    <Table>
+    <Table className="min-h-full">
       {/* <TableCaption>Results</TableCaption> */}
-      <TableHeader>
-        <TableRow>
+      <TableHeader className="overflow-clip">
+        <MotionRow className="hover:bg-transparent overflow-clip"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0, duration: 0.15 }}
+        >
           <TableHead className="">Lectin</TableHead>
           {/* <TableHead className="text-right"></TableHead> */}
-        </TableRow>
+        </MotionRow>
       </TableHeader>
       <TableBody>
-        {lectins.map((lect) => {
+        {lectins.map((lect, i) => {
           return (
-          <TableRow 
+          <MotionRow 
             className="border-gray-50 cursor-pointer"
             key={lect}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (i+1) * 0.05, duration: 0.15 }}
             // onClick={() => router.push(`/lections/${lect}`)}
           >
             <TableCell className="font-medium p-0">
@@ -36,7 +46,7 @@ export default function SearchResults({ lectins }) {
                 {lect}
               </Link>
             </TableCell>
-          </TableRow>
+          </MotionRow>
           )
         })}
         {/* <TableRow>

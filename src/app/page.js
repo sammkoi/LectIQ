@@ -25,14 +25,19 @@ function Head() {
 }
 
 export default async function Home() {
-  const data = await fetch(`${host}/lectins`).then((res) => res.json());
+  let data = {lectins: []};
+  try {
+    data = await fetch(`${host}/lectins`).then((res) => res.json());
+  } catch (except) {
+    console.log(except)
+  }
   const lectins = data.lectins;
 
   return (
     <>
-    <div className="hidden md:flex flex-col w-full">
+    <div className="hidden md:flex flex-col w-full h-full">
       <Head />
-      <div className="flex flex-col m-8 mt-12 gap-4">
+      <div className="flex flex-col m-8 mt-12 gap-4 min-h-[25rem] flex-1">
         <SearchBar lectins={lectins} />
       </div>
 

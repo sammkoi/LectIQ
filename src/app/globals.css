@@ -91,10 +91,26 @@
     --foreground: #ededed;
   }
 } */
+*::-webkit-scrollbar-track {
+  background: transparent; /* transparent background */
+}
+
+
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;  /* "auto" | "thin" | "none" */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
 
 body {
   font-family: "Geist", Helvetica, sans-serif;
 }
+
+body::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
 
 .search {
   background-color: #daf0e437;
