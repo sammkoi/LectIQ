@@ -8,11 +8,15 @@ class LectinService:
   data: dict[str, pd.DataFrame]
   
   def __init__(self,):
-    self.data = pd.read_excel("data/galectins_id_cleaned.xlsx") # todo: dynamic
+    self.data = pd.read_excel("data/galectins_id_cleaned.xlsx", sheet_name=None) # todo: dynamic
   
-  def get_lectin_info(self, id: str) -> Optional[pd.DataFrame]:
+  def get_lectin_info(self, id: str) -> Optional[dict]:
     '''Return available glycan info'''
-    return self.data.get(id, None)
+    res = self.data.get(id, None)
+    if not res: return None
+    return res.to_dict()
 
   def get_lectins(self) -> list[str]:
+    '''Return available lectins'''
+    print(self.data)
     return sorted(list(self.data.keys()))
