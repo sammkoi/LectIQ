@@ -18,6 +18,7 @@ export default function SearchBar({ lectins, onSearch }) {
   const fuse = new Fuse(lectins, fuseOptions);
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
+  const sz = lectins.length;
   useEffect(() => {
     if (!query) {
       setQueriedLectin(lectins);
@@ -57,6 +58,6 @@ export default function SearchBar({ lectins, onSearch }) {
         </button> */}
       </div>
     </form>
-    <SearchResults lectins={queriedLectin} />
+    <SearchResults lectins={queriedLectin} total={sz} />
   </>);
 }
