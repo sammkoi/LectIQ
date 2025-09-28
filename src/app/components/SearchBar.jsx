@@ -4,7 +4,7 @@ import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
 
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar({ lectins, onSearch }) {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
