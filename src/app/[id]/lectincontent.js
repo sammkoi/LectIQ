@@ -29,7 +29,7 @@ export async function LectinContent({ params }) {
   return (
     <div className="flex flex-col w-full gap-4">
       <h1 className="text-2xl font-[500]">Lectin {id}</h1>
-      <p>This is the page for lectin with ID: {id}</p>
+      {/* <p>This is the page for lectin with ID: {id}</p> */}
       <GlycanGraph data={data} imgs={imgData} />
     </div>
   );

@@ -74,7 +74,7 @@ export default function GlycanGraph({ data, imgs }) {
         {/* <CardDescription></CardDescription> */}
       </CardHeader>
       <CardContent>
-        <ChartContainer config={sampleConfig} className="w-full max-h-[50vh]">
+        <ChartContainer config={glycanChartConfig} className="w-full max-h-[50vh]">
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} horizontal={false} />
             <XAxis 
