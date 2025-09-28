@@ -1,7 +1,7 @@
 const host = `http://localhost:8000/api`; // TODO: change to env variable
 
-export default async function LectinContent({ params }) {
-  const { id } = await params;
+export async function LectinContent({ id }) {
+  // const { id } = await params;
 
   const res = await fetch(`${host}/lectins/${id}`, { cache: "default" });
   if (!res.ok) {
@@ -22,3 +22,7 @@ export default async function LectinContent({ params }) {
     </div>
   );
 }
+
+// export function LectinContentWrapper({ id }) {
+//   return <LectinContent id={id} />;
+// }

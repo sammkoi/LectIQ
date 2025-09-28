@@ -1,11 +1,12 @@
-"use client"
-import { Suspense } from "react"
-import LectinContent from "./lectincontent"
+import { Suspense } from "react";
+import { LectinContent } from "./lectincontent";
 
-export default function LectinPage({ params }) {
+export default async function LectinPage({ params }) {
+  // const { id } = use(params);
+  const { id } = await params;
   return (
   <Suspense fallback={<div>Loading...</div>}>
-    <LectinContent params={params} />
+    <LectinContent id={id} />
   </Suspense>
-  )
+  );
 }
