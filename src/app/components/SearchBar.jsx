@@ -3,10 +3,30 @@ import { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
 import SearchResults from "./SearchResults";
+import Fuse from "fuse.js";
 
+
+const fuseOptions = {
+  includeScore: true, // Include a score indicating similarity
+  threshold: 0.2,
+  location: 0,
+  distance: 100,
+  ignoreLocation: true
+}
 
 export default function SearchBar({ lectins, onSearch }) {
+  const fuse = new Fuse(lectins, fuseOptions);
   const [query, setQuery] = useState("");
+  const [queriedLectin, setQueriedLectin] = useState([]);
+  useEffect(() => {
+    console.log(query)
+    if (!query) {
+      setQueriedLectin(lectins);
+      return; 
+    }
+    const filtered = fuse.search(query).map(res => res.item);
+    setQueriedLectin(filtered);
+  }, [query]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +57,6 @@ export default function SearchBar({ lectins, onSearch }) {
         </button> */}
       </div>
     </form>
-    <SearchResults lectins={lectins} />
+    <SearchResults lectins={queriedLectin} />
   </>);
 }
