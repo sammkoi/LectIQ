@@ -18,12 +18,53 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
+export const glycanChartConfig = {
+  "glycan": {
+    name: "Glycan"
+  },
+  "kd": {
+    name: "Kd"
+  },
+  "inv": {
+    name: "1/Kd"
+  },
+  "sd": {
+    name: "SD"
+  },
+  "id": {
+    name: "GlyTouCan ID"
+  },
+}
+
 export default function GlycanGraph({ data }) {
   if (!data) {
     return (<div>No data</div>)
   }
+
+  /*
+  data[i] = {
+    ID: str,
+    Glycan: str,
+    Kd: int,
+    SD: float,
+    GlyTouCan ID: str
+  }
+  */
   
-  let chartData = [];
+  const chartData = [];
+  for (const dataGlycan of data) {
+    // const {ID, ...cleanGlycan} = glycan;
+    chartData.push({
+      glycan: dataGlycan['Glycan'],
+      kd: dataGlycan['Kd'],
+      inv: dataGlycan['1/Kd'],
+      sd: dataGlycan['SD'],
+      id: dataGlycan['GlyTouCan ID']
+    });
+  }
+
+  
+
   
   
   return (
