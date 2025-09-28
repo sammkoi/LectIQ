@@ -13,10 +13,9 @@ class LectinService:
   def get_lectin_info(self, id: str) -> Optional[dict]:
     '''Return available glycan info'''
     res = self.data.get(id, None)
-    if not res: return None
-    return res.to_dict()
+    if res is None or res.empty: return None
+    return res.to_dict(orient="records")
 
   def get_lectins(self) -> list[str]:
     '''Return available lectins'''
-    print(self.data)
     return sorted(list(self.data.keys()))

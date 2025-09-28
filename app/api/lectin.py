@@ -1,5 +1,6 @@
 # api/lectin.py
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import JSONResponse, StreamingResponse
 from app.service.lectin import LectinService
 from app.core.dependencies import get_lectin_service
 router = APIRouter()
@@ -20,4 +21,5 @@ def get_lectin_info(
   res = service.get_lectin_info(id)
   if res is None:
     raise HTTPException(status_code=400, detail="Invalid Lectin")
-  return {"Status": 200, "id": id, "type": f'{type(id)}'}
+  
+  return JSONResponse(content=res)
