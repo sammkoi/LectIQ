@@ -32,7 +32,7 @@ export default async function Home() {
     <>
     <div className="hidden md:flex flex-col w-full">
       <Head />
-      <div className="flex flex-col m-8 mt-12">
+      <div className="flex flex-col m-8 mt-12 gap-4">
         <SearchBar lectins={lectins} />
       </div>
 

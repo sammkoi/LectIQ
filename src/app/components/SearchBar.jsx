@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
+import SearchResults from "./SearchResults";
 
 
 export default function SearchBar({ lectins, onSearch }) {
@@ -14,7 +15,7 @@ export default function SearchBar({ lectins, onSearch }) {
   const handleChange = (ev) => {
 
   };
-  return (
+  return (<>
     <form
       onSubmit={handleSubmit}
       className="flex flex-col"
@@ -36,5 +37,6 @@ export default function SearchBar({ lectins, onSearch }) {
         </button> */}
       </div>
     </form>
-  );
+    <SearchResults lectins={lectins} />
+  </>);
 }
