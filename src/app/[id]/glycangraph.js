@@ -55,7 +55,7 @@ export default function GlycanGraph({ data, imgs }) {
   
   const chartData = [];
   for (const dataGlycan of data) {
-    // const {ID, ...cleanGlycan} = glycan;
+    if (dataGlycan['Kd'] === "NB") { continue; }
     chartData.push({
       glycan: dataGlycan['Glycan'],
       kd: dataGlycan['Kd'],
@@ -65,6 +65,8 @@ export default function GlycanGraph({ data, imgs }) {
       img: imgs[dataGlycan['GlyTouCan ID']]
     });
   }
+
+  const sortedChartData = [...chartData].sort((a,b) => (a.inv - b.inv))
   
   
   return (
@@ -75,7 +77,7 @@ export default function GlycanGraph({ data, imgs }) {
       </CardHeader>
       <CardContent>
         <ChartContainer config={glycanChartConfig} className="w-full max-h-[50vh]">
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart accessibilityLayer data={sortedChartData}>
             <CartesianGrid vertical={false} horizontal={false} />
             <XAxis 
               dataKey="glycan"
