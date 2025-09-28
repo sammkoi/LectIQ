@@ -1,4 +1,5 @@
 import GlycanGraph from "./glycangraph";
+import fetchGlycanImage from "./fetchimage";
 
 export const host = `http://localhost:8000/api`; // TODO: change to env variable
 
@@ -15,12 +16,20 @@ export async function LectinContent({ id }) {
     )
   }
   const data = await res.json();
+  const imgData = {};
+  if (data) {
+    for (const glycan of data) {
+      const id = glycan["GlyTouCan ID"];
+      const svg = fetchGlycanImage(id);
+      imgData[id] = svg;
+    }
+  }
   
   return (
     <div className="flex flex-col w-full gap-4">
       <h1 className="text-2xl font-[500]">Lectin {id}</h1>
       <p>This is the page for lectin with ID: {id}</p>
-      <GlycanGraph data={data} />
+      <GlycanGraph data={data} imgs={imgData} />
     </div>
   );
 }

@@ -36,7 +36,7 @@ export const glycanChartConfig = {
   },
 }
 
-export default function GlycanGraph({ data }) {
+export default function GlycanGraph({ data, imgs }) {
   if (!data) {
     return (<div>No data</div>)
   }
@@ -86,7 +86,10 @@ export default function GlycanGraph({ data }) {
               label="1/Kd"
               axisLine
             />
-            
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
             <Bar dataKey="inv" fill="var(--chart-3)" radius={8}/>
           </BarChart>
         </ChartContainer>
