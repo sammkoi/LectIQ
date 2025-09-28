@@ -1,9 +1,11 @@
 function generateURL(id) {
-  return `https://image.glycosmos.org/snfg/png/${id}`
+  // return `https://image.glycosmos.org/snfg/png/${id}`;
+  return `https://api.glygen.org/glycan/image_svg/${id}/`;
 }
 
 export default async function fetchGlycanImage({ glytoucanId }) {
-  const res = await fetch(generateURL(glytoucanId), { cache: "default" });
-  
-
+  const svg = await fetch(generateURL(glytoucanId), { cache: "default" }).then(
+    (res) => res.text()
+  );
+  console.log(res);
 }
