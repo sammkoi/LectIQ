@@ -30,7 +30,8 @@ export default function SearchBar({ lectins, onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
+  
+  // TODO: add animation for search bar focus
   const handleChange = (ev) => {
 
   };

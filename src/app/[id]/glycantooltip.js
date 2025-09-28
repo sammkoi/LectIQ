@@ -9,6 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import Image from 'next/image'
+
 export default function GlycanTooltip({ active, payload, label }) {
   if (!active || !payload || payload.length === 0) return null;
   const dataPoint = payload[0].payload; // full data object
@@ -42,7 +44,7 @@ export default function GlycanTooltip({ active, payload, label }) {
     <CardContent>
       <CardTitle>{`${glycan}`}</CardTitle>
       <CardDescription>{`Kd: ${kd}`}</CardDescription>
-      <img src={imgURI} alt="glycan structure"></img>
+      <Image src={imgURI} alt="glycan structure" />
     </CardContent>
     <CardFooter>
       <div className="flex w-full items-start gap-2 text-sm">

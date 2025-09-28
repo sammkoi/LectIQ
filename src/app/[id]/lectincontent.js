@@ -11,7 +11,7 @@ export async function LectinContent({ params }) {
     return (
       <div>
       <h1 className="text-2xl font-[500] mb-4">Error: 400</h1>
-      <p>"{id}" is not a valid lectin.</p>
+      <p>{`"${id}" is not a valid lectin.`}</p>
     </div>
     )
   }
