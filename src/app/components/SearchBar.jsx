@@ -4,7 +4,7 @@ import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
 import SearchResults from "./SearchResults";
 import Fuse from "fuse.js";
-
+// import { motion } from "motion/react";
 
 const fuseOptions = {
   includeScore: true, // Include a score indicating similarity
@@ -41,7 +41,7 @@ export default function SearchBar({ lectins, onSearch }) {
       onSubmit={handleSubmit}
       className="flex flex-col"
     >
-      <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm">
+      <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm transition ease-in-out">
         <input
           type="text"
           className="flex-1 bg-transparent outline-none text-base placeholder:text-muted-foreground pt-2 pb-2"

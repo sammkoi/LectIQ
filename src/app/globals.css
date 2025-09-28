@@ -118,10 +118,13 @@ body::-webkit-scrollbar-track {
 
 .search {
   background-color: #daf0e437;
+}
+/* .search {
+  background-color: #daf0e437;
   border-color: var(--outline);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-}
+} */
 
 .search:focus-within {
   border-width: 1px;
