@@ -103,6 +103,10 @@
   scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
 }
 
+/* html, body, #root {
+  height: 100%;
+} */
+
 body {
   font-family: "Geist", Helvetica, sans-serif;
 }
