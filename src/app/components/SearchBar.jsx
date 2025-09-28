@@ -19,7 +19,6 @@ export default function SearchBar({ lectins, onSearch }) {
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
   useEffect(() => {
-    console.log(query)
     if (!query) {
       setQueriedLectin(lectins);
       return; 
