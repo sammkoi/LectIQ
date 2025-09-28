@@ -16,7 +16,8 @@ export default function GlycanTooltip({ active, payload, label }) {
   const kd = dataPoint.kd;
   const glycan = dataPoint.glycan;
   const id = dataPoint.id;
-  console.log("IMAGE URI:", imgURI)
+  // console.log("IMAGE URI:", imgURI)
+  
   if (!imgURI) {
     return (<>
       <Card className="p-2">
