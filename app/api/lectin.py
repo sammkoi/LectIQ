@@ -3,6 +3,6 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-router.get("/lectin")
+@router.get("/lectin")
 def get_lectin():
   return {"Status": 200}

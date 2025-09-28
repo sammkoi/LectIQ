@@ -106,6 +106,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
+    { name = "uvicorn" },
 ]
 
 [package.dev-dependencies]
@@ -120,6 +121,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.2" },
     { name = "pydantic", specifier = ">=2.11.9" },
     { name = "pydantic-settings", specifier = ">=2.11.0" },
+    { name = "uvicorn", specifier = ">=0.37.0" },
 ]
 
 [package.metadata.requires-dev]
