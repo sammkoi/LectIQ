@@ -58,6 +58,13 @@ export default function SearchBar({ lectins, onSearch }) {
         </button> */}
       </div>
     </form>
-    <SearchResults lectins={queriedLectin} total={sz} />
+    {(lectins.length === 0) && (
+      <div className="flex flex-row justify-center gap-4">
+        <h1>No lectins available.</h1>
+      </div>
+    )}
+    {(lectins.length > 0) && (
+      <SearchResults lectins={queriedLectin} total={sz} />
+    )}
   </>);
 }
