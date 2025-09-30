@@ -6,7 +6,7 @@ export const host = process.env.HOST;
 export async function LectinContent({ params }) {
   const { id } = await params;
 
-  const res = await fetch(`${host}/lectins/${id}`, { cache: "default" });
+  const res = await fetch(`${host}/lectins/${id}`, { cache: "force-cache" });
   if (!res.ok) {
     return (
       <div>

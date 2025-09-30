@@ -13,7 +13,7 @@ function Head() {
         </h1>
         <p className="mt-2 font-['Geist'] text-sm font-medium max-w-lg">
           Database search engine for binding data for carbohydrate libraries and compounds.
-          This is a living database, with data primarily sourced from <a>these papers</a>.
+          This is a living database, with data primarily sourced from <a href="https://pubs.acs.org/doi/10.1021/acs.analchem.6b05169">these papers</a>.
           {/* TODO: LINK PAPERS */}
         </p>
       </section>
@@ -27,7 +27,7 @@ function Head() {
 export default async function Home() {
   let data = {lectins: []};
   try {
-    data = await fetch(`${host}/lectins`).then((res) => res.json());
+    data = await fetch(`${host}/lectins`, { cache: "force-cache" }).then((res) => res.json());
   } catch (except) {
     console.log(except)
   }
