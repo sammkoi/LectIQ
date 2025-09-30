@@ -6,4 +6,4 @@ WORKDIR /app
 COPY . .
 RUN uv sync --locked
 
-CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
