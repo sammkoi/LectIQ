@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM public.ecr.aws/docker/library/python:slim
 RUN apt-get update && apt-get install -y curl
 COPY --from=ghcr.io/astral-sh/uv:0.8.3 /uv /uvx /bin/
 
