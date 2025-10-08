@@ -145,7 +145,7 @@ export default function GlycanGraph({ data, imgs }) {
           <div className="flex w-full items-start gap-2 text-sm">
             <div className="grid gap-2">
               <div className="flex items-center gap-2 leading-none font-medium">
-                GlyTouCan ID: {selectedGlycan.id}
+                <a href={`https://glytoucan.org/Structures/Glycans/${selectedGlycan.id}`}>GlyTouCan ID: {selectedGlycan.id}</a>
               </div>
             </div>
           </div>
