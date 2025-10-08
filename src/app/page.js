@@ -9,7 +9,7 @@ function Head() {
     <div className="flex flex-row text-(--text) justify-between w-[100%] cursor-default">
       <section>
         <h1 className="text-6xl font-['Kameron']">
-        ChemDB Search
+        LectIQ
         </h1>
         <p className="mt-2 font-['Geist'] text-sm font-medium max-w-lg">
           Database search engine for binding data for carbohydrate libraries and compounds.

@@ -1,6 +1,7 @@
-LectQ
+names:
+- LectQ
 
-LectIQ
+- LectIQ
 
 TODO: fix safari
 - graph messed up

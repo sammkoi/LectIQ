@@ -83,7 +83,7 @@ export default function GlycanGraph({ data, imgs }) {
   
   return (
     <>
-    <Card className="w-[100%]">
+    <Card className="w-[100%] h-fit">
       <CardHeader>
         <CardTitle>Dissociation Plot (1/Kd) </CardTitle>
         {/* <CardDescription></CardDescription> */}
