@@ -79,9 +79,7 @@ export default function GlycanGraph({ data, imgs }) {
     });
   }
 
-
   const sortedChartData = [...chartData].sort((a,b) => (b.inv - a.inv))
-  
   
   return (
     <>
