@@ -41,6 +41,17 @@ export const glycanChartConfig = {
 }
 
 export default function GlycanGraph({ data, imgs }) {
+  /**
+   * @typedef {Object} Glycan
+   * @property {*} glycan
+   * @property {*} kd
+   * @property {*} inv
+   * @property {*} sd
+   * @property {*} id
+   * @property {*} img
+   */
+  const [ selectedGlycan, setSelectedGlycan ] = useState(null);
+
   if (!data) {
     return (<div>No data</div>)
   }
@@ -68,16 +79,6 @@ export default function GlycanGraph({ data, imgs }) {
     });
   }
 
-  /**
-   * @typedef {Object} Glycan
-   * @property {*} glycan
-   * @property {*} kd
-   * @property {*} inv
-   * @property {*} sd
-   * @property {*} id
-   * @property {*} img
-   */
-  const [ selectedGlycan, setSelectedGlycan ] = useState(chartData.length > 0 ? chartData[0] : null);
 
   const sortedChartData = [...chartData].sort((a,b) => (b.inv - a.inv))
   
