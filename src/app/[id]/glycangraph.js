@@ -2,6 +2,7 @@
 
 import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import Image from 'next/image'
 
 import {
   Card,
@@ -19,6 +20,7 @@ import {
 } from "@/components/ui/chart"
 
 import GlycanTooltip from "./glycantooltip"
+import { useState } from "react"
 
 export const glycanChartConfig = {
   "glycan": {
@@ -66,10 +68,22 @@ export default function GlycanGraph({ data, imgs }) {
     });
   }
 
+  /**
+   * @typedef {Object} Glycan
+   * @property {*} glycan
+   * @property {*} kd
+   * @property {*} inv
+   * @property {*} sd
+   * @property {*} id
+   * @property {*} img
+   */
+  const [ selectedGlycan, setSelectedGlycan ] = useState(chartData.length > 0 ? chartData[0] : null);
+
   const sortedChartData = [...chartData].sort((a,b) => (b.inv - a.inv))
   
   
   return (
+    <>
     <Card className="w-[100%]">
       <CardHeader>
         <CardTitle>Dissociation Plot (1/Kd) </CardTitle>
@@ -77,7 +91,11 @@ export default function GlycanGraph({ data, imgs }) {
       </CardHeader>
       <CardContent>
         <ChartContainer config={glycanChartConfig} className="w-full max-h-[50vh]">
-          <BarChart accessibilityLayer data={sortedChartData}>
+          <BarChart accessibilityLayer data={sortedChartData} onClick={(e) => {
+            if (!e.activeLabel) return;
+            const glycan = sortedChartData.find(d => d.glycan == e.activeLabel);
+            if (glycan) setSelectedGlycan(glycan)
+          }}>
             <CartesianGrid vertical={false} horizontal={false} />
             <XAxis 
               dataKey="glycan"
@@ -105,5 +123,34 @@ export default function GlycanGraph({ data, imgs }) {
         </ChartContainer>
       </CardContent>
     </Card>
+    {(selectedGlycan != null) && (
+      <div className="w-full mt-8">
+        <CardHeader>
+          <CardTitle>
+            {selectedGlycan.glycan}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription>{`Kd: ${selectedGlycan.kd}`}</CardDescription>
+          <Image 
+            src={selectedGlycan.img} alt="glycan structure" 
+            width={0}
+            height={0}
+            className="max-w-[70%] w-auto h-auto max-h-[100px%]"
+            priority
+          />
+        </CardContent>
+        <CardFooter>
+          <div className="flex w-full items-start gap-2 text-sm">
+            <div className="grid gap-2">
+              <div className="flex items-center gap-2 leading-none font-medium">
+                GlyTouCan ID: {selectedGlycan.id}
+              </div>
+            </div>
+          </div>
+        </CardFooter>
+      </div>
+    )}
+    </>
   )
 }
