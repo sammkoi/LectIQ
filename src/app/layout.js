@@ -14,8 +14,8 @@ const kameron = Kameron({
 
 
 export const metadata = {
-  title: "ChemDB",
-  description: "ChemDB",
+  title: "LecIQ",
+  description: "Quantitative Lectin-Glycan Affinity Database",
 };
 
 function Navbar() {
