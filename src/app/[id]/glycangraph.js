@@ -80,19 +80,27 @@ export default function GlycanGraph({ data, imgs }) {
   const chartData = [];
   for (const dataGlycan of data) {
     if (dataGlycan['Kd'] === "NB") { continue; }
+    const inverr = dataGlycan['inverr']
+    const inv = dataGlycan['1/Kd']
     chartData.push({
       glycan: dataGlycan['Glycan'],
       unit: dataGlycan['unit'],
       kd: dataGlycan['Kd'],
-      inv: dataGlycan['1/Kd'],
+      inv: inv,
       id: dataGlycan['GlyTouCan ID'],
       img: imgs[dataGlycan['GlyTouCan ID']],
       kderr: dataGlycan['kderr'],
-      inverr: dataGlycan['inverr'],
+      inverr: [
+        // ((Math.abs(inverr) > Math.abs(inv)) ? 0 : inverr), 
+        Math.min(inv, inverr), 
+        inverr
+      ],
+      zero: 0
     });
   }
 
-  const sortedChartData = [...chartData].sort((a,b) => (b.inv - a.inv))
+  const sortedChartData = [...chartData].sort((a,b) => (b.inv - a.inv));
+  // const invMax = Math.max(...chartData.map(data => data.inv));
   
   return (
     <>
@@ -119,6 +127,7 @@ export default function GlycanGraph({ data, imgs }) {
             <YAxis
               dataKey="inv"
               tickLine={false}
+              // domain={[0, 'dataMax + 0.1']}
               label={{
                 value: "1/Kd",
                 angle: -90,
@@ -131,7 +140,10 @@ export default function GlycanGraph({ data, imgs }) {
               content={<GlycanTooltip />}
             />
             <Bar dataKey="inv" fill="#18adae" radius={[4, 4, 0, 0]}>
-              <ErrorBar dataKey="inverr" stroke="#000000"/>  
+              <ErrorBar
+                dataKey="inverr"
+                stroke="#000000"
+              />
             </ Bar>
           </BarChart>
         </ChartContainer>
