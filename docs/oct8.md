@@ -23,8 +23,5 @@ TODO: fix safari
 - make `d` in `Kd` a subscript (K_d) 
 
 
-
-
-
 method part in paper ?
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ErrorBar } from "recharts"
 import Image from 'next/image'
 
 import {
@@ -38,6 +38,15 @@ export const glycanChartConfig = {
   "id": {
     name: "GlyTouCan ID"
   },
+  "unit": {
+    name: "Unit"
+  },
+  "kderr": {
+    name: "Kd Error"
+  },
+  "inverr": {
+    name: "1/Kd Error"
+  },
 }
 
 export default function GlycanGraph({ data, imgs }) {
@@ -71,11 +80,14 @@ export default function GlycanGraph({ data, imgs }) {
     if (dataGlycan['Kd'] === "NB") { continue; }
     chartData.push({
       glycan: dataGlycan['Glycan'],
+      unit: dataGlycan['unit'],
       kd: dataGlycan['Kd'],
       inv: dataGlycan['1/Kd'],
       sd: dataGlycan['SD'],
       id: dataGlycan['GlyTouCan ID'],
-      img: imgs[dataGlycan['GlyTouCan ID']]
+      img: imgs[dataGlycan['GlyTouCan ID']],
+      kderr: dataGlycan['kderr'],
+      inverr: dataGlycan['inverr'],
     });
   }
 
@@ -117,7 +129,9 @@ export default function GlycanGraph({ data, imgs }) {
               // active={true}
               content={<GlycanTooltip />}
             />
-            <Bar dataKey="inv" fill="var(--chart-3)" radius={8}/>
+            <Bar dataKey="inv" fill="#18adae" radius={[4, 4, 0, 0]}>
+              <ErrorBar dataKey="inverr" stroke="#000000"/>  
+            </ Bar>
           </BarChart>
         </ChartContainer>
       </CardContent>
