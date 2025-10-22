@@ -15,6 +15,8 @@ TODO: fix safari
 - need to add SD bar (done)
     - error bars (done)
 
+- description update
+- separate title page from search
 - units
 - micromolar or millimolar (done)
 - \mu -> micro
