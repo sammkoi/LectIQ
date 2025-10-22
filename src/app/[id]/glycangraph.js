@@ -53,11 +53,13 @@ export default function GlycanGraph({ data, imgs }) {
   /**
    * @typedef {Object} Glycan
    * @property {*} glycan
+   * @property {*} unit
    * @property {*} kd
    * @property {*} inv
-   * @property {*} sd
    * @property {*} id
    * @property {*} img
+   * @property {*} kderr
+   * @property {*} inverr
    */
   const [ selectedGlycan, setSelectedGlycan ] = useState(null);
 
@@ -83,7 +85,6 @@ export default function GlycanGraph({ data, imgs }) {
       unit: dataGlycan['unit'],
       kd: dataGlycan['Kd'],
       inv: dataGlycan['1/Kd'],
-      sd: dataGlycan['SD'],
       id: dataGlycan['GlyTouCan ID'],
       img: imgs[dataGlycan['GlyTouCan ID']],
       kderr: dataGlycan['kderr'],
