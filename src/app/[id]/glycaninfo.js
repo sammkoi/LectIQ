@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card"
 
 import Image from 'next/image'
-
+// todo: bold the kd / visually separate kd and kderr
 export default function GlycanInfo({ selectedGlycan }) {
   const imgURI = selectedGlycan.img;
   const kdNum = selectedGlycan.kd;
