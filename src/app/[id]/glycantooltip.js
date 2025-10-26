@@ -15,9 +15,12 @@ export default function GlycanTooltip({ active, payload, label }) {
   if (!active || !payload || payload.length === 0) return null;
   const dataPoint = payload[0].payload; // full data object
   const imgURI = dataPoint.img;
-  const kd = dataPoint.kd;
+  const kdNum = dataPoint.kd;
   const glycan = dataPoint.glycan;
   const id = dataPoint.id;
+  const unit = dataPoint.unit;
+  const kderr = dataPoint.kderr;
+  const kd = `${kdNum.toPrecision(2)} ± ${kderr.toPrecision(2)} ${unit}`;
   // console.log("IMAGE URI:", imgURI)
   
   if (!imgURI) {

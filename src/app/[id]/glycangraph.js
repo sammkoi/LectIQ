@@ -2,7 +2,6 @@
 
 import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ErrorBar } from "recharts"
-import Image from 'next/image'
 
 import {
   Card,
@@ -20,6 +19,7 @@ import {
 } from "@/components/ui/chart"
 
 import GlycanTooltip from "./glycantooltip"
+import GlycanInfo from "./glycaninfo"
 import { useState } from "react"
 
 export const glycanChartConfig = {
@@ -150,32 +150,7 @@ export default function GlycanGraph({ data, imgs }) {
       </CardContent>
     </Card>
     {(selectedGlycan != null) && (
-      <div className="w-full mt-8">
-        <CardHeader>
-          <CardTitle>
-            {selectedGlycan.glycan}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <CardDescription>{`Kd: ${selectedGlycan.kd}`}</CardDescription>
-          <Image 
-            src={selectedGlycan.img} alt="glycan structure" 
-            width={0}
-            height={0}
-            className="max-w-[70%] w-auto h-auto max-h-[100px%]"
-            priority
-          />
-        </CardContent>
-        <CardFooter>
-          <div className="flex w-full items-start gap-2 text-sm">
-            <div className="grid gap-2">
-              <div className="flex items-center gap-2 leading-none font-medium">
-                <a href={`https://glytoucan.org/Structures/Glycans/${selectedGlycan.id}`}>GlyTouCan ID: {selectedGlycan.id}</a>
-              </div>
-            </div>
-          </div>
-        </CardFooter>
-      </div>
+      <GlycanInfo selectedGlycan={selectedGlycan} />
     )}
     </>
   )
