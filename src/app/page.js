@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { Search } from 'lucide-react';
-import SearchBar from "./components/SearchBar";
+// import Image from "next/image";
+// import { Search } from 'lucide-react';
+import SearchSection from "./components/SearchBar";
 
 export const host = process.env.HOST;
 
-function Head() {
+function Head({className}) {
   return (<>
     <div className="flex flex-row text-(--text) justify-between w-[100%] cursor-default">
       <section>
@@ -48,7 +48,7 @@ export default async function Home() {
     <div className="hidden md:flex flex-col w-full h-full">
       <Head />
       <div className="flex flex-col m-8 mt-12 gap-4 flex-1">
-        <SearchBar lectins={lectins} />
+        <SearchSection lectins={lectins} />
       </div>
 
     </div>

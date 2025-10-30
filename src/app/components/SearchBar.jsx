@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
 import SearchResults from "./SearchResults";
@@ -14,7 +15,7 @@ const fuseOptions = {
   ignoreLocation: true
 }
 
-export default function SearchBar({ lectins, onSearch }) {
+export default function SearchSection({ lectins, onSearch }) {
   const fuse = new Fuse(lectins, fuseOptions);
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
@@ -41,7 +42,9 @@ export default function SearchBar({ lectins, onSearch }) {
       onSubmit={handleSubmit}
       className="flex flex-col"
     >
-      <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm transition ease-in-out">
+      <motion.div 
+        layout
+        className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm transition ease-in-out">
         <input
           type="text"
           className="flex-1 bg-transparent outline-none text-base placeholder:text-muted-foreground pt-2 pb-2"
@@ -56,7 +59,7 @@ export default function SearchBar({ lectins, onSearch }) {
         >
           <Send size={18} />
         </button> */}
-      </div>
+      </motion.div>
     </form>
     {(lectins.length === 0) && (
       <div className="flex flex-row justify-center gap-4">
