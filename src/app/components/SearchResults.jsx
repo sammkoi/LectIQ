@@ -18,7 +18,7 @@ const MotionRow = motion.create(TableRow)
 export default function SearchResults({ lectins, total, className }) {
   // const router = useRouter();
   return (
-    <motion.div className={className}>
+    <motion.div className={className} initial="hidden" animate="visible" exit="hidden">
     <Table className="min-h-full">
       <TableCaption>{`${lectins.length} ${lectins.length != 1 ? 'Lectins' : 'Lectin'}`}</TableCaption>
       <TableHeader className="overflow-clip">

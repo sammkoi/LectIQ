@@ -1,6 +1,6 @@
 // import Image from "next/image";
 // import { Search } from 'lucide-react';
-import SearchSection from "./components/SearchBar";
+import SearchSection from "./components/SearchSection";
 
 export const host = process.env.HOST;
 
