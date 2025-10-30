@@ -64,7 +64,7 @@ export default function SearchBar({ lectins, onSearch }) {
       </div>
     )}
     {(lectins.length > 0) && (
-      <SearchResults lectins={queriedLectin} total={sz} />
+      <SearchResults lectins={queriedLectin} total={sz} className={`${query.length == 0 && "hidden"}`}/>
     )}
   </>);
 }

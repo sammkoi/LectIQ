@@ -15,11 +15,12 @@ import { motion } from "motion/react";
 import Link from "next/link";
 const MotionRow = motion.create(TableRow)
 
-export default function SearchResults({ lectins, total }) {
+export default function SearchResults({ lectins, total, className }) {
   // const router = useRouter();
   return (
+    <motion.div className={className}>
     <Table className="min-h-full">
-      <TableCaption>{`${total} Lectins`}</TableCaption>
+      <TableCaption>{`${lectins.length} ${lectins.length != 1 ? 'Lectins' : 'Lectin'}`}</TableCaption>
       <TableHeader className="overflow-clip">
         <MotionRow className="hover:bg-transparent overflow-clip"
           initial={{ opacity: 0, y: 10 }}
@@ -55,5 +56,6 @@ export default function SearchResults({ lectins, total }) {
         </TableRow> */}
       </TableBody>
     </Table>
+    </motion.div>
   );
 }
