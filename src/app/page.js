@@ -43,6 +43,7 @@ export default async function Home() {
   }
   const lectins = data.lectins;
 
+  // todo: animate search
   return (
     <>
     <div className="hidden md:flex flex-col w-full h-full">
