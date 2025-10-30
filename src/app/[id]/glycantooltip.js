@@ -20,7 +20,7 @@ export default function GlycanTooltip({ active, payload, label }) {
   const id = dataPoint.id;
   const unit = dataPoint.unit;
   const kderr = dataPoint.kderr;
-  const kd = `${kdNum.toPrecision(2)} ± ${kderr.toPrecision(2)} ${unit}`;
+  const kd = `${kdNum.toPrecision(2)} ± ${kderr.toPrecision(2)} ${unit == 'mM' ? 'mM' : 'µM'}`;
   // console.log("IMAGE URI:", imgURI)
   
   if (!imgURI) {
