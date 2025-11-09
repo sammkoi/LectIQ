@@ -106,8 +106,6 @@ export default function GlycanGraph({ data, imgs }) {
     <>
     <Card className="w-[100%] h-fit">
       <CardHeader>
-        <CardTitle>Dissociation Plot (1/Kd) </CardTitle>
-        {/* <CardDescription></CardDescription> */}
       </CardHeader>
       <CardContent>
         <ChartContainer config={glycanChartConfig} className="w-full max-h-[50vh]">

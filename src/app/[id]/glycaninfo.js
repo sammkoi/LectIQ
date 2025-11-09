@@ -17,6 +17,7 @@ export default function GlycanInfo({ selectedGlycan }) {
   const unit = selectedGlycan.unit;
   const kderr = selectedGlycan.kderr;
   const kd = `${kdNum.toPrecision(2)} ± ${kderr.toPrecision(2)} ${unit == 'mM' ? 'mM' : 'µM'}`;
+
   return (
     <div className="w-full mt-8">
       <CardHeader>
