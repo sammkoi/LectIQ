@@ -88,9 +88,7 @@ export default function SearchSection({
   return (
     <div
       ref={searchSectionRef}
-      className={`flex flex-col gap-8 ${
-        hasQuery ? "flex-1 min-h-0" : ""
-      }`}
+      className={`flex flex-col gap-8 ${hasQuery ? "flex-1 min-h-0" : ""}`}
     >
       {/* todo: scroll only table body */}
       <form
