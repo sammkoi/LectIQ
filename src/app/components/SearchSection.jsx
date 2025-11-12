@@ -24,6 +24,7 @@ export default function SearchSection({
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
+  lectins = Array.from(Array(100).keys());
   const sz = lectins.length;
 
   useEffect(() => {
@@ -63,7 +64,8 @@ export default function SearchSection({
 
   return (
     <div className={`flex flex-col gap-8 ${hasQuery ? "flex-1 min-h-0" : ""}`}>
-      <form onSubmit={handleSubmit} className="flex flex-col flex-shrink-0">
+      {/* todo: scroll only table body */}
+      <form onSubmit={handleSubmit} className="flex flex-col flex-shrink-0 sticky top-0 z-10">
         <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm">
           <input
             type="text"

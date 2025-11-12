@@ -25,15 +25,15 @@ export default function HomeContent({ lectins }) {
       </div>
       <div
         // todo: motion.div animate
-        className="flex flex-col"
-        style={{
-          flex: isSearchActive ? "1 1 0%" : "0 1 auto",
-          minHeight: isSearchActive ? 0 : "auto",
-          padding: isSearchActive ? "1rem" : "2rem",
-          paddingTop: isSearchActive ? "1rem" : "3rem",
-          gap: isSearchActive ? "0" : "1rem",
-          transition: "padding 0s, margin 0s, flex 0s, min-height 0s, gap 0s",
-        }}
+        className="flex flex-col overflow-scroll"
+        // style={{
+        //   flex: isSearchActive ? "1 1 0%" : "0 1 auto",
+        //   minHeight: isSearchActive ? 0 : "auto",
+        //   padding: isSearchActive ? "1rem" : "2rem",
+        //   paddingTop: isSearchActive ? "1rem" : "3rem",
+        //   gap: isSearchActive ? "0" : "1rem",
+        //   transition: "padding 0s, margin 0s, flex 0s, min-height 0s, gap 0s",
+        // }}
       >
         <SearchSection
           lectins={lectins}

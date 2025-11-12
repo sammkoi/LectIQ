@@ -61,6 +61,7 @@ export default function SearchResults({ lectins, total, className = "" }) {
           <TableCell className="flex flex-row items-center justify-end text-right"><SquareArrowOutUpRight size={12}/></TableCell>
         </TableRow> */}
         </TableBody>
+
       </Table>
     </div>
   );
