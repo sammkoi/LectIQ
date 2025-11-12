@@ -25,7 +25,7 @@ export default function HomeContent({ lectins }) {
       </div>
       <div
         // todo: motion.div animate
-        className="flex flex-col overflow-scroll"
+        className="flex flex-col overflow-scroll pl-4 pr-4"
         // style={{
         //   flex: isSearchActive ? "1 1 0%" : "0 1 auto",
         //   minHeight: isSearchActive ? 0 : "auto",
