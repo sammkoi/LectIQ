@@ -12,65 +12,96 @@ const fuseOptions = {
   threshold: 0.2,
   location: 0,
   distance: 100,
-  ignoreLocation: true
-}
+  ignoreLocation: true,
+};
 
-export default function SearchSection({ lectins, onSearch }) {
+export default function SearchSection({
+  lectins,
+  onSearch,
+  onSearchActiveChange,
+}) {
   const fuse = new Fuse(lectins, fuseOptions);
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
+  const [isFocused, setIsFocused] = useState(false);
   const sz = lectins.length;
+
   useEffect(() => {
     if (!query) {
       setQueriedLectin(lectins);
-      return; 
+      return;
     }
-    const filtered = fuse.search(query).map(res => res.item);
+    const filtered = fuse.search(query).map((res) => res.item);
     setQueriedLectin(filtered);
   }, [query]);
+
+  // Track if search is active (focused or has query)
+  useEffect(() => {
+    const isActive = isFocused || query.length > 0;
+    if (onSearchActiveChange) {
+      onSearchActiveChange(isActive);
+    }
+  }, [isFocused, query, onSearchActiveChange]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  
-  // TODO: add animation for search bar focus
-  const handleChange = (ev) => {
 
+  const handleChange = (ev) => {
+    setQuery(ev.target.value);
   };
-  return (<>
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col"
-    >
-      <motion.div 
-        layout
-        className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm transition ease-in-out">
-        <input
-          type="text"
-          className="flex-1 bg-transparent outline-none text-base placeholder:text-muted-foreground pt-2 pb-2"
-          placeholder="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        {/* <SortSelection /> */}
-        {/* <button
-          type="submit"
-          className="ml-2 rounded-xl px-3 py-2 hover:text-white hover:bg-primary/90 transition"
-        >
-          <Send size={18} />
-        </button> */}
-      </motion.div>
-    </form>
-    {(lectins.length === 0) && (
-      <div className="flex flex-row justify-center gap-4">
-        <h1>No lectins available.</h1>
-      </div>
-    )}
-    {(lectins.length > 0) && (
-      // todo: use isPresent
-      <AnimatePresence>
-        <SearchResults lectins={queriedLectin} total={sz} className={`${query.length == 0 && "hidden"}`}/>
-      </AnimatePresence>
-    )}
-  </>);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+  const isSearchActive = isFocused || query.length > 0;
+  const hasQuery = query.length > 0;
+
+  return (
+    <div className={`flex flex-col ${hasQuery ? "flex-1 min-h-0" : ""}`}>
+      <form onSubmit={handleSubmit} className="flex flex-col flex-shrink-0">
+        <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm">
+          <input
+            type="text"
+            className="flex-1 bg-transparent outline-none text-base placeholder:text-muted-foreground pt-2 pb-2"
+            placeholder="Search"
+            value={query}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          {/* <SortSelection /> */}
+          {/* <button
+            type="submit"
+            className="ml-2 rounded-xl px-3 py-2 hover:text-white hover:bg-primary/90 transition"
+          >
+            <Send size={18} />
+          </button> */}
+        </div>
+      </form>
+      {lectins.length === 0 && (
+        <div className="flex flex-row justify-center gap-4">
+          {/* <h1>No lectins available.</h1> */}
+        </div>
+      )}
+      {lectins.length > 0 && query.length > 0 && (
+        <AnimatePresence>
+          <motion.div
+            key="results"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="flex-1 min-h-0 overflow-auto mt-4"
+          >
+            <SearchResults lectins={queriedLectin} total={sz} className="" />
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </div>
+  );
 }

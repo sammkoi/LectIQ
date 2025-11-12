@@ -118,6 +118,7 @@ body::-webkit-scrollbar-track {
 
 .search {
   background-color: #daf0e437;
+  border: 1px solid transparent;
 }
 /* .search {
   background-color: #daf0e437;
@@ -127,7 +128,7 @@ body::-webkit-scrollbar-track {
 } */
 
 .search:focus-within {
-  border-width: 1px;
+  border-color: var(--outline);
 }
 
 p.placeholder {
