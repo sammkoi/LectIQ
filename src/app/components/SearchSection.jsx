@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Send } from "lucide-react";
 import SortSelection from "./SortSelection";
@@ -24,6 +24,7 @@ export default function SearchSection({
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
+  const searchSectionRef = useRef(null);
   // lectins = Array.from(Array(100).keys());
   const sz = lectins.length;
 
@@ -44,6 +45,27 @@ export default function SearchSection({
     }
   }, [isFocused, query, onSearchActiveChange]);
 
+  // Handle clicks outside the search section
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchSectionRef.current &&
+        !searchSectionRef.current.contains(event.target)
+      ) {
+        // Clicked outside the search section
+        setIsFocused(false);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -57,15 +79,24 @@ export default function SearchSection({
   };
 
   const handleBlur = () => {
-    setIsFocused(false);
+    // Don't blur immediately - let the outside click handler manage it
+    // This prevents issues with clicking on search results
   };
   // const isSearchActive = isFocused || query.length > 0;
   const hasQuery = query.length > 0;
 
   return (
-    <div className={`flex flex-col gap-8 ${hasQuery ? "flex-1 min-h-0" : ""}`}>
+    <div
+      ref={searchSectionRef}
+      className={`flex flex-col gap-8 ${
+        hasQuery ? "flex-1 min-h-0" : ""
+      }`}
+    >
       {/* todo: scroll only table body */}
-      <form onSubmit={handleSubmit} className="flex flex-col flex-shrink-0 sticky top-0 z-10">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col flex-shrink-0 sticky top-0 z-10"
+      >
         <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm">
           <input
             type="text"
@@ -90,8 +121,12 @@ export default function SearchSection({
           {/* <h1>No lectins available.</h1> */}
         </div>
       )}
-      {lectins.length > 0 && isFocused && (
-        <SearchResults lectins={lectins.length > 0 ? queriedLectin : lectins} total={sz} className="" />
+      {lectins.length > 0 && (isFocused || query.length > 0) && (
+        <SearchResults
+          lectins={lectins.length > 0 ? queriedLectin : lectins}
+          total={sz}
+          className=""
+        />
       )}
     </div>
   );
