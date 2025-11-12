@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-screen">
       <body
-        className={`${geist.variable} ${kameron.variable} antialiased h-screen flex flex-col overflow-hidden`}
+        className={`${geist.variable} ${kameron.variable} antialiased h-screen flex flex-col`}
       >
         <Navbar></Navbar>
         <main className="flex flex-1 min-h-0 m-4 ml-24 mr-24 md:m-8 md:ml-48 md:mr-48">

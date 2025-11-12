@@ -26,7 +26,7 @@ export default function Head({ className }) {
         It provides a centralized resource for exploring how glycan-binding
         proteins (GBPs)—including lectins, antibodies, and the
         carbohydrate-binding modules of carbohydrate-active enzymes—recognize
-        glycans. By compiling dissociation constants (Kd) from rigorously
+        glycans. By compiling dissociation constants (K<sub>d</sub>) from rigorously
         curated nMS studies, LectIQ enables direct comparison of affinities
         across lectin families and glycan motifs. The database offers insights
         into specificity and cooperativity in glycan recognition, supporting

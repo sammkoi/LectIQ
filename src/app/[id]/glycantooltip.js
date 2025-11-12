@@ -46,7 +46,7 @@ export default function GlycanTooltip({ active, payload, label }) {
   <Card className="p-2">
     <CardContent >
       <CardTitle>{`${glycan}`}</CardTitle>
-      <CardDescription>{`Kd: ${kd}`}</CardDescription>
+      <CardDescription>K<sub>d</sub>: {kd}</CardDescription>
       <Image 
         src={imgURI} alt="glycan structure" 
         width={0}
