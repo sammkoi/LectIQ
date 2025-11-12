@@ -42,7 +42,7 @@ export default function SearchResults({ lectins, total, className = "" }) {
                 key={lect}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (i + 1) * 0.025, duration: 0.1 }}
+                transition={{ delay: (i + 1) * 0.025, duration: 0.075 }}
                 // onClick={() => router.push(`/lections/${lect}`)}
               >
                 <TableCell className="font-medium p-0">
