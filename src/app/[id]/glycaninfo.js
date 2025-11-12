@@ -27,7 +27,7 @@ export default function GlycanInfo({ selectedGlycan }) {
       </CardHeader>
       <CardContent>
         <CardDescription className="flex flex-row items-top gap-2">
-          <p>K<sub>d</sub>:</p>
+          <p className="font-bold">K<sub>d</sub>:</p>
           <ul>
             {/* todo: fill via kd array (also convert kd to kd array) */}
             <li>{kd}</li>
