@@ -130,7 +130,10 @@ export default function GlycanGraph({ data, imgs }) {
                 tickLine={false}
                 tick={false}
                 axisLine
-                label="Glycan"
+                label={{
+                  value: "Glycan",
+                  fill: '#000000',
+                }}
               />
               <YAxis
                 dataKey="inv"
@@ -141,6 +144,7 @@ export default function GlycanGraph({ data, imgs }) {
                   // TODO: make it a subscript
                   angle: -90,
                   dx: -10,
+                  fill: '#000000',
                 }}
                 axisLine
               />
