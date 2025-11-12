@@ -24,7 +24,7 @@ export default function SearchSection({
   const [query, setQuery] = useState("");
   const [queriedLectin, setQueriedLectin] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-  lectins = Array.from(Array(100).keys());
+  // lectins = Array.from(Array(100).keys());
   const sz = lectins.length;
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function SearchSection({
   const handleBlur = () => {
     setIsFocused(false);
   };
-  const isSearchActive = isFocused || query.length > 0;
+  // const isSearchActive = isFocused || query.length > 0;
   const hasQuery = query.length > 0;
 
   return (
