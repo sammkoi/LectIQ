@@ -62,7 +62,7 @@ export default function SearchSection({
   const hasQuery = query.length > 0;
 
   return (
-    <div className={`flex flex-col ${hasQuery ? "flex-1 min-h-0" : ""}`}>
+    <div className={`flex flex-col gap-8 ${hasQuery ? "flex-1 min-h-0" : ""}`}>
       <form onSubmit={handleSubmit} className="flex flex-col flex-shrink-0">
         <div className="flex flex-row items-center search p-4 gap-2 rounded-2xl focus-within:shadow-sm">
           <input
@@ -88,19 +88,8 @@ export default function SearchSection({
           {/* <h1>No lectins available.</h1> */}
         </div>
       )}
-      {lectins.length > 0 && query.length > 0 && (
-        <AnimatePresence>
-          <motion.div
-            key="results"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="flex-1 min-h-0 overflow-auto mt-4"
-          >
-            <SearchResults lectins={queriedLectin} total={sz} className="" />
-          </motion.div>
-        </AnimatePresence>
+      {lectins.length > 0 && isFocused && (
+        <SearchResults lectins={lectins.length > 0 ? queriedLectin : lectins} total={sz} className="" />
       )}
     </div>
   );
