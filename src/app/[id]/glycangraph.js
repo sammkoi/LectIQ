@@ -111,7 +111,7 @@ export default function GlycanGraph({ data, imgs }) {
         <CardContent>
           <ChartContainer
             config={glycanChartConfig}
-            className="w-full max-h-[50vh]"
+            className="w-full h-full max-h-[50vh]"
           >
             <BarChart
               accessibilityLayer
