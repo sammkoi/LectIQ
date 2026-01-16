@@ -31,14 +31,18 @@ function Navbar() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-screen">
+    <html lang="en">
       <body
-        className={`${geist.variable} ${kameron.variable} antialiased h-screen flex flex-col`}
+        className={`${geist.variable} ${kameron.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar></Navbar>
         <main className="flex flex-1 min-h-0 m-4 ml-24 mr-24 md:m-8 md:ml-48 md:mr-48">
           {children}
         </main>
+        {/* todo: footer (broken for lectin pg) */}
+        <footer className="flex flex-col justify-center items-center p-4 text-sm text-(--text-dim)">
+          <p>2026 University of Alberta</p>
+        </footer>
       </body>
     </html>
   );
