@@ -40,10 +40,15 @@ source ref (link to source or DOI or something, will be PK) | source name | year
 
 # design questions
 is the source going to be given as a DOI in the sheet, or something else
+- full ref
 
 always xlsx ?
 
 mobile ?
 
 
+branch display
+- pick lectin -> X entries -> 
 
+
+home | database | search
