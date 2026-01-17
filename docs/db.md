@@ -49,6 +49,9 @@ mobile ?
 
 branch display
 - pick lectin -> X entries -> 
+- [reference](https://www.functionalglycomics.org/glycan-array)
 
 
 home | database | search
+
+
