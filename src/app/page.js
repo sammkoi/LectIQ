@@ -5,7 +5,7 @@ export const host = process.env.HOST;
 export default async function Home() {
   let data = { lectins: [] };
   try {
-    data = await fetch(`${host}/lectins`, { cache: "force-cache" }).then(
+    data = await fetch(`${host}/lectins`, { cache: "default" }).then(
       (res) => res.json()
     );
   } catch (except) {
