@@ -11,7 +11,7 @@ class LectinService:
   def __init__(self,):
     # self.data = pd.read_excel("app/data/galectins_id_cleaned.xlsx", sheet_name=None) # todo: dynamic
     self.data1 = pd.read_excel("app/data/Galectins_GlyTouCanID_Updated.xlsx", sheet_name=None) # todo: dynamic
-    self.data2 = pd.read_excel("app/data/GAL4_data_cleaned.xlsx", sheet_name=None)
+    self.data2 = pd.read_excel("app/data/GAL4_Data_GlyTouCanID.xlsx", sheet_name=None)
   
   def get_lectin_info(self, id: str) -> Optional[dict]:
     '''Return available glycan info'''
