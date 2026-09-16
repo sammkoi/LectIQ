@@ -16,7 +16,7 @@ export default function GlycanInfo({ selectedGlycan }) {
   const id = selectedGlycan.id;
   const unit = selectedGlycan.unit;
   const kderr = selectedGlycan.kderr;
-  const kd = `${kdNum.toPrecision(2)} ± ${kderr.toPrecision(2)} ${
+  const kd = `${kdNum?.toPrecision(2) ?? 'N/A'} ± ${kderr?.toPrecision(2) ?? 'N/A'} ${
     unit == "mM" ? "mM" : "µM"
   }`;
 
