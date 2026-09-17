@@ -4,10 +4,12 @@ function generateURL(id) {
 }
 
 export default async function fetchGlycanImage(glytoucanId) {
-  const svg = await fetch(generateURL(glytoucanId), { cache: "force-cache" }).then(
-    (res) => res.text()
-  );
-  // console.log(svg);
-  // return encodeURIComponent(svg);
-  return svg;
+  try {
+    const res = await fetch(generateURL(glytoucanId), { cache: "force-cache" });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch (err) {
+    console.error(`Failed to fetch glycan image for ${glytoucanId}:`, err);
+    return null;
+  }
 }
